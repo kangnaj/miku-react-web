@@ -41,13 +41,23 @@
   },
   "homepage": "https://github.com/kangnaj/miku-react-web#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
+    "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "conventional-changelog-cli": "^2.2.2",
+    "copy-webpack-plugin": "^10.2.4",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.10.0",
@@ -60,11 +70,14 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-unicorn": "^41.0.0",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.1",
+    "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "lint-staged": "^12.3.5",
+    "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -84,12 +97,19 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "webpackbar": "^5.0.2"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "ie >= 9",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.17.2",
+    "axios": "^0.26.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
