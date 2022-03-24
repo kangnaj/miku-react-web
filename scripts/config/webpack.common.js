@@ -31,20 +31,22 @@ const getCssLoaders = (importLoaders) => [
   {
     loader: 'postcss-loader',
     options: {
-      ident: 'postcss',
-      plugins: [
-        // 修复一些和 flex 布局相关的 bug
-        require('postcss-flexbugs-fixes'),
-        require('postcss-preset-env')({
-          autoprefixer: {
-            grid: true,
-            flexbox: 'no-2009'
-          },
-          stage: 3,
-        }),
-        require('postcss-normalize'),
-      ],
-      sourceMap: isDev,
+      // webpack 5 写法
+      postcssOptions: {
+        plugins: [
+          require('postcss-flexbugs-fixes')(),
+          !isDev && [
+            'postcss-preset-env',
+            {
+              autoprefixer: {
+                grid: true,
+                flexbox: 'no-2009',
+              },
+              stage: 3,
+            },
+          ],
+        ].filter(Boolean),
+      },
     },
   },
 ]
@@ -83,11 +85,11 @@ module.exports = {
       filename: 'index.html',
       cache: false, // 特别重要：防止之后使用v6版本 copy-webpack-plugin 时代码修改一刷新页面为空问题。
     }),
-    !isDev && new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-      ignoreOrder: false,
-    }),
+    // !isDev && new MiniCssExtractPlugin({
+    //   filename: 'css/[name].[contenthash:8].css',
+    //   chunkFilename: 'css/[name].[contenthash:8].css',
+    //   ignoreOrder: false,
+    // }),
     new CopyPlugin({
       patterns: [
         {
