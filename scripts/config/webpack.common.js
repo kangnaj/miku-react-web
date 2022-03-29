@@ -66,6 +66,7 @@ module.exports = {
       'Src': resolve(PROJECT_PATH, './src'),
       'Components': resolve(PROJECT_PATH, './src/components'),
       'Utils': resolve(PROJECT_PATH, './src/utils'),
+      '~styles': resolve(PROJECT_PATH, './src/assets/style')
     }
   },
   //  减少打包体积

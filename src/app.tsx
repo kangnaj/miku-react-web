@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import Login from './Login';
-import admin from './pages/admin';
+import Login from './pages/Login';
+import admin from './pages/admin/admin';
 import 'antd/dist/antd.css';
-import "./app.css";
+import "./app.scss";
 import { HashRouter, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 class App extends Component {

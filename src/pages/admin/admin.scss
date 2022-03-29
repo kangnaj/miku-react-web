@@ -1,0 +1,85 @@
+@import '~styles/common';
+@import '~styles/app';
+@import '~styles/var';
+@import '~styles/mixin';
+.app-contain {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+  color: var(--font-color);
+  $slideDruation: 0.625s;
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: calc(100% - 80px);
+    background: var(--aside-bg-color);
+    border-radius: 24px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    animation: slide-in $slideDruation forwards;
+    transition: all 0.25s;
+    &.hide {
+      width: 80px;
+    }
+    & > b {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      aspect-ratio: 2/1;
+      font-size: 30px;
+      animation-duration: 1.25s;
+      animation-delay: $slideDruation;
+    }
+    .switch {
+      position: absolute;
+      top: 0;
+      right: 8px;
+      bottom: 0;
+      margin: auto 0;
+      width: 20px;
+      height: 100px;
+      cursor: pointer;
+      &::before {
+        @include mask(1,#fff);
+        right: 0;
+        margin: 0 auto;
+        width: 5px;
+        height: 100%;
+        border-radius: 20px;
+        opacity: 0.6;
+        transition: all 0.25s;
+      }
+      &:hover::before {
+        opacity: 0.8;
+      }
+    }
+    @keyframes slide-in {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(-40px);
+      }
+    }
+  }
+  &__main {
+    margin-top: 40px;
+    box-sizing: border-box;
+    height: calc(100% - 40px);
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fade-in 1s $slideDruation forwards;
+    @keyframes fade-in {
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
