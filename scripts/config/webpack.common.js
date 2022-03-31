@@ -65,6 +65,7 @@ module.exports = {
     alias: {
       'Src': resolve(PROJECT_PATH, './src'),
       'Components': resolve(PROJECT_PATH, './src/components'),
+      'Pages': resolve(PROJECT_PATH, './src/pages'),
       'Utils': resolve(PROJECT_PATH, './src/utils'),
       '~styles': resolve(PROJECT_PATH, './src/assets/style')
     }

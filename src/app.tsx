@@ -11,7 +11,7 @@ class App extends Component {
 			<HashRouter>
 				<Switch>
 					<Route path="/login" component={Login}></Route>
-					<Route path="/" exact component={admin}></Route>
+					<Route path="/" component={admin}></Route>
 				</Switch>
 			</HashRouter>
 		);
