@@ -1,3 +1,4 @@
+import React from "react";
 export interface MenuConfig {
   title: string;
   key: string;
