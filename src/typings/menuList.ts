@@ -13,5 +13,11 @@ export const menuList: MenuConfig[] = [
     key: "/home",
     icon: "HomeOutlined",
     isPublic: true,
-  }
+  },
+  {
+    title: "Todo",
+    key: "/todo",
+    icon: "LikeOutlined",
+    isPublic: true,
+  },
 ]

@@ -13,8 +13,6 @@ type LeftNavProps = typeof RouteComponentProps
 function GetMenuNodes(menuList: MenuConfig[]): JSX.Element[] | null {
   const dispatch = useDispatch();
   const path = useLocation();
-  console.log(dispatch, 'Icon456456456');
-  console.log(dispatch(setHeadTitle), 'menuList64654564');
   return menuList.reduce((pre: JSX.Element[], item: MenuConfig): JSX.Element[] => {
       if (!item.children) {
         if (item.key === path.pathname || path.pathname.indexOf(item.key) === 0) {

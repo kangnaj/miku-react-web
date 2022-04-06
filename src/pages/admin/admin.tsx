@@ -1,12 +1,13 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Redirect, Route, Switch, RouteComponentProps } from "react-router-dom";
+import { Layout, Breadcrumb } from 'antd';
 import Home from "../home";
+import Todo from "../todo";
 import SiderLeft from 'Components/layout/SiderLeft'
-
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
-function Admin() {
+import Header from 'Components/layout/header'
+const { Content, Footer, Sider } = Layout;
+function Admin(props: typeof RouteComponentProps) {
+  console.log(props, 'props565655+5')
   const [collapsed, setCollapse ] = React.useState(false);
   const onCollapse = (state: boolean) => {
     setCollapse(state)
@@ -17,7 +18,7 @@ function Admin() {
           <SiderLeft></SiderLeft>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Header/>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -26,6 +27,7 @@ function Admin() {
             <Switch>
               <Redirect exact={true} from="/" to="/home"></Redirect>
               <Route path="/home" component={Home}></Route>
+              <Route path="/todo" component={Todo}></Route>
             </Switch>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
