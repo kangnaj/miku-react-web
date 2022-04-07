@@ -4,11 +4,17 @@ import { Layout, Breadcrumb } from 'antd';
 import Home from "../home";
 import Todo from "../todo";
 import SiderLeft from 'Components/layout/SiderLeft'
-import Header from 'Components/layout/header'
+import Header from 'Components/layout/Header'
+import {  useDispatch, useSelector } from 'react-redux';
+import { addTag } from 'Src/redux/actions';
+import { RootState } from 'Src/redux/types'
 const { Content, Footer, Sider } = Layout;
 function Admin(props: typeof RouteComponentProps) {
-  console.log(props, 'props565655+5')
   const [collapsed, setCollapse ] = React.useState(false);
+  const dispatch = useDispatch();
+  const tagList = useSelector((state: RootState) => state.tagList);
+  console.log(dispatch(addTag({name: '首页'})), 'dispatch78798789');
+  console.log(tagList, 'state4654564');
   const onCollapse = (state: boolean) => {
     setCollapse(state)
   }
