@@ -7,14 +7,14 @@ import SiderLeft from 'Components/layout/SiderLeft'
 import Header from 'Components/layout/Header'
 import {  useDispatch, useSelector } from 'react-redux';
 import { addTag } from 'Src/redux/actions';
-import { RootState } from 'Src/redux/types'
+import { RootState } from 'typesafe-actions';
 const { Content, Footer, Sider } = Layout;
 function Admin(props: typeof RouteComponentProps) {
   const [collapsed, setCollapse ] = React.useState(false);
   const dispatch = useDispatch();
   const tagList = useSelector((state: RootState) => state.tagList);
-  console.log(dispatch(addTag({name: '首页'})), 'dispatch78798789');
-  console.log(tagList, 'state4654564');
+  // console.log(dispatch(addTag({name: '首页'})), 'dispatch78798789');
+  // console.log(tagList, 'state4654564');
   const onCollapse = (state: boolean) => {
     setCollapse(state)
   }
