@@ -18,15 +18,14 @@ const Footer:React.FC<footerType> = (props: footerType) => {
 // }
 
 const AddTask: React.FC<taskType> = (props: taskType): JSX.Element => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
   const [taskForm, setTaskForm] = useState<task> ({num: '', content: ''})
+  const resetForm = useCallback(() => {
+    form.resetFields();
+  }, [form]);
   useEffect(() => {
     if(props.visible) {
-      setTaskForm(() => {
-        taskForm.num = ""
-        taskForm.content = ""
-        return {...taskForm}
-      })
+      resetForm()
     }
   }, [props.visible])
   const onOk = async () => {
@@ -68,6 +67,41 @@ const AddTask: React.FC<taskType> = (props: taskType): JSX.Element => {
         <Input value={taskForm.content}/>
       </Form.Item>
     </Form>
+    <Button type="primary"  onClick={resetForm}>
+      重置
+    </Button>
+  </Modal>)
+}
+
+const AddTaskTWO: React.FC<taskType> = (props: taskType): JSX.Element => {
+  const [taskForm, setTaskForm] = useState<task> ({num: '', content: ''})
+  const onOk = async () => {
+    try {
+      props.onOk(taskForm)
+    } catch (errorInfo) {
+      console.log('Failed:', errorInfo);
+    }
+  }
+  useEffect(() => {
+    if(props.visible) {
+      setTaskForm(() => {
+        taskForm.num = ""
+        taskForm.content = ""
+        return {...taskForm}
+      })
+    }
+  }, [props.visible])
+  const handlerChange = (e: any) => {
+    taskForm.num = e.target.value
+    setTaskForm({...taskForm})
+  }
+  const handlerContentChange = (e: any) => {
+    taskForm.content = e.target.value
+    setTaskForm({...taskForm})
+  }
+  return (<Modal title="详情" centered visible={props.visible} onCancel={()=>props.onCancel()} width={500} footer={<Footer onCancel={()=>props.onCancel()} onOk={()=>onOk()} />}>
+    <Input placeholder="任务编号" value={taskForm.num} onChange={ (e) => handlerChange(e) }/>
+    <Input placeholder="任务内容" value={taskForm.content} onChange={ handlerContentChange }/>
   </Modal>)
 }
 
