@@ -3,6 +3,7 @@ import { Redirect, Route, Switch, RouteComponentProps } from "react-router-dom";
 import { Layout, Breadcrumb } from 'antd';
 import Home from "../home";
 import Todo from "../todo";
+import functionCompontents from "../functionCompontents";
 import SiderLeft from 'Components/layout/SiderLeft'
 import Header from 'Components/layout/Header'
 import {  useDispatch, useSelector } from 'react-redux';
@@ -34,6 +35,7 @@ function Admin(props: typeof RouteComponentProps) {
               <Redirect exact={true} from="/" to="/home"></Redirect>
               <Route path="/home" component={Home}></Route>
               <Route path="/todo" component={Todo}></Route>
+              <Route path="/functionCompontents" component={functionCompontents}></Route>
             </Switch>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

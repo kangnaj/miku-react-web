@@ -20,4 +20,10 @@ export const menuList: MenuConfig[] = [
     icon: "LikeOutlined",
     isPublic: true,
   },
+  {
+    title: "FunctionCompontents",
+    key: "/functionCompontents",
+    icon: "WalletOutlined",
+    isPublic: true,
+  },
 ]

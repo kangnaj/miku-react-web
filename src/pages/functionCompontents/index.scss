@@ -1,0 +1,18 @@
+.porp-title {
+  font-size: 14px;
+  color: #000;
+  margin-top: 10px;
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 3px;
+}
+.prps-box {
+  .ant-result {
+    padding: 10px;
+  }
+  .ant-result-icon {
+    margin: 0;
+    >.anticon {
+      font-size: 40px;
+    }
+  }
+}
