@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Result, Button, Modal, Space,Form, Input, Checkbox, Card } from 'antd';
+import { Result} from 'antd';
 import { DemoPropsType } from './DemoPropsType'
 function DemoProps(props: DemoPropsType) {
   return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Layout } from 'antd';
 import { setHeadTitle, addTag, delTag } from '../../redux/actions';
 import { RootState } from 'typesafe-actions';
 import { connect } from 'react-redux';
